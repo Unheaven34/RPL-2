@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Watchlog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <h1>Watchlog</h1>
+    <input id="search" type="search" placeholder="Cari judul film" aria-label="Cari judul film">
+    <button class="btn primary" id="addBtn">Tambah film</button>
+  </header>
+
+  <main>
+    <nav class="tabs" id="tabs" aria-label="Filter status"></nav>
+    <div id="banner" class="banner" hidden></div>
+    <section id="grid" class="grid" aria-live="polite"></section>
+  </main>
+
+  <dialog id="formDialog">
+    <form id="movieForm" method="dialog">
+      <h2 id="formTitle">Tambah film</h2>
+      <label>Judul
+        <input id="title" required maxlength="200">
+      </label>
+      <label>URL poster
+        <input id="poster" type="url" placeholder="https://...">
+      </label>
+      <div class="row">
+        <label>Status
+          <select id="status">
+            <option value="Plan to Watch">Ingin ditonton</option>
+            <option value="Watching">Sedang ditonton</option>
+            <option value="Completed">Selesai</option>
+          </select>
+        </label>
+        <label>Rating
+          <select id="rating">
+            <option value="0">Belum dinilai</option>
+            <option value="1">1 bintang</option><option value="2">2 bintang</option>
+            <option value="3">3 bintang</option><option value="4">4 bintang</option>
+            <option value="5">5 bintang</option>
+          </select>
+        </label>
+      </div>
+      <div class="actions">
+        <button type="button" class="btn" id="cancelBtn">Batal</button>
+        <button type="submit" class="btn primary" id="saveBtn">Simpan film</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="confirmDialog">
+    <form method="dialog">
+      <h2>Hapus film?</h2>
+      <p id="confirmText"></p>
+      <div class="actions">
+        <button value="cancel" class="btn">Batal</button>
+        <button value="ok" class="btn danger">Hapus film</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div id="toast" class="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>

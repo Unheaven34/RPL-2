@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Tambah Film - Watchlog</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container" style="max-width: 500px;">
+        <h2>Tambah Film Baru</h2>
+        <form id="movieForm">
+            <div style="margin-bottom: 15px;">
+                <label>Judul Film:</label><br>
+                <input type="text" id="title" required style="width: 100%; padding: 8px; margin-top: 5px;">
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label>URL Poster Film:</label><br>
+                <input type="text" id="poster" required style="width: 100%; padding: 8px; margin-top: 5px;">
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label>Status (Contoh: In Progress / Completed):</label><br>
+                <input type="text" id="status" required style="width: 100%; padding: 8px; margin-top: 5px;">
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label>Rating (1-5):</label><br>
+                <input type="number" id="rating" min="1" max="5" required style="width: 100%; padding: 8px; margin-top: 5px;">
+            </div>
+            <button type="submit" class="btn-add" style="border: none; cursor: pointer; width: 100%;">Simpan Film</button>
+        </form>
+        <br>
+        <a href="index.html" style="color: #b3b3b3;">&larr; Kembali ke Beranda</a>
+    </div>
+
+    <script>
+        document.getElementById('movieForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const newMovie = {
+                movieTitle: document.getElementById('title').value,
+                moviePoster: document.getElementById('poster').value,
+                status: document.getElementById('status').value,
+                userRating: parseInt(document.getElementById('rating').value)
+            };
+
+            try {
+                const response = await fetch('http://localhost:8080/api/movies', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(newMovie)
+                });
+
+                if (response.ok) {
+                    alert('Film berhasil ditambahkan!');
+                    window.location.href = 'index.html';
+                } else {
+                    alert('Gagal menyimpan film.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Terjadi kesalahan koneksi ke server Java.');
+            }
+        });
+    </script>
+</body>
+</html>
