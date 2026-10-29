@@ -1,0 +1,4 @@
+com\example\watchlog\model\Movie.class
+com\example\watchlog\repository\MovieRepository.class
+com\example\watchlog\controller\MovieController.class
+com\example\watchlog\WatchlogApplication.class
