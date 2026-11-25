@@ -136,6 +136,7 @@ $('confirmDialog').addEventListener('close', async () => {
 });
 
 $('addBtn').onclick = () => openForm(null);
+$('reportBtn').onclick = () => window.open(BACKEND_URL + '/api/reports/movies/pdf', 'Watchlog Reports');
 $('cancelBtn').onclick = () => $('formDialog').close();
 $('search').addEventListener('input', e => { query = e.target.value.toLowerCase(); render(); });
 

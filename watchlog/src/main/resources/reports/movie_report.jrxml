@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport name="movie_report" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2b0eabf2-cff0-4aa1-befc-95c4dfb6fee8">
+    <parameter name="title" class="java.lang.String"/>
+    <field name="movieTitle" class="java.lang.String"/>
+    <field name="status" class="java.lang.String"/>
+    <field name="userRating" class="java.lang.Integer"/>
+    <title height="45">
+        <element kind="textField" uuid="636fe6f1-d69a-420d-b17b-421ca8831904" x="0" y="5" width="555" height="30" fontSize="18.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+            <expression><![CDATA[$P{title}]]></expression>
+        </element>
+    </title>
+    <columnHeader height="25">
+        <element kind="staticText" uuid="c9f9db6e-0f6c-4102-b7b7-9e9fbdcfd699" x="0" y="0" width="40" height="25" backcolor="#E0E0E0" mode="Opaque" fontSize="12.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+            <text><![CDATA[No]]></text>
+            <box leftPadding="5" rightPadding="5"><pen lineWidth="0.5" lineColor="#000000"/></box>
+        </element>
+        <element kind="staticText" uuid="b08fd6cf-0b95-4fdd-8ab7-084c067da088" x="40" y="0" width="275" height="25" backcolor="#E0E0E0" mode="Opaque" fontSize="12.0" bold="true" hTextAlign="Left" vTextAlign="Middle">
+            <text><![CDATA[Judul Film]]></text>
+            <box leftPadding="5" rightPadding="5"><pen lineWidth="0.5" lineColor="#000000"/></box>
+        </element>
+        <element kind="staticText" uuid="e715eb6d-66ba-42e2-971f-f98b0257308e" x="315" y="0" width="140" height="25" backcolor="#E0E0E0" mode="Opaque" fontSize="12.0" bold="true" hTextAlign="Left" vTextAlign="Middle">
+            <text><![CDATA[Status]]></text>
+            <box leftPadding="5" rightPadding="5"><pen lineWidth="0.5" lineColor="#000000"/></box>
+        </element>
+        <element kind="staticText" uuid="a0e318f5-306a-457b-a415-b7ea81c299fa" x="455" y="0" width="100" height="25" backcolor="#E0E0E0" mode="Opaque" fontSize="12.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+            <text><![CDATA[Rating]]></text>
+            <box leftPadding="5" rightPadding="5"><pen lineWidth="0.5" lineColor="#000000"/></box>
+        </element>
+    </columnHeader>
+    <detail>
+        <band height="22">
+            <element kind="textField" uuid="8353780c-e97a-4ca3-9f85-5c2e6516e5d0" x="0" y="0" width="40" height="22" fontSize="11.0" hTextAlign="Center" vTextAlign="Middle">
+                <expression><![CDATA[$V{REPORT_COUNT}]]></expression>
+                <box leftPadding="5" rightPadding="5"><pen lineWidth="0.5" lineColor="#000000"/></box>
+            </element>
+            <element kind="textField" uuid="43674685-ecff-4a4d-bd0b-360ba1404904" x="40" y="0" width="275" height="22" fontSize="11.0" hTextAlign="Left" vTextAlign="Middle">
+                <expression><![CDATA[$F{movieTitle}]]></expression>
+                <box leftPadding="5" rightPadding="5"><pen lineWidth="0.5" lineColor="#000000"/></box>
+            </element>
+            <element kind="textField" uuid="5928399c-dd4e-406a-8e27-35c268209cb3" x="315" y="0" width="140" height="22" fontSize="11.0" hTextAlign="Left" vTextAlign="Middle">
+                <expression><![CDATA[$F{status}]]></expression>
+                <box leftPadding="5" rightPadding="5"><pen lineWidth="0.5" lineColor="#000000"/></box>
+            </element>
+            <element kind="textField" uuid="282e6ab9-18af-4cce-9845-e845c2545e1e" x="455" y="0" width="100" height="22" fontSize="11.0" hTextAlign="Center" vTextAlign="Middle">
+                <expression><![CDATA[$F{userRating}]]></expression>
+                <box leftPadding="5" rightPadding="5"><pen lineWidth="0.5" lineColor="#000000"/></box>
+            </element>
+        </band>
+    </detail>
+    <pageFooter height="25">
+        <element kind="textField" uuid="7272b3cc-b3c5-4e08-8509-e1647cc368fa" x="0" y="0" width="555" height="20" fontSize="10.0" hTextAlign="Right" vTextAlign="Middle">
+            <expression><![CDATA["Halaman " + $V{PAGE_NUMBER}]]></expression>
+        </element>
+    </pageFooter>
+</jasperReport>

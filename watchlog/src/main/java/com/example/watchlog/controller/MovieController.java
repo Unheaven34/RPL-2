@@ -4,7 +4,7 @@ import com.example.watchlog.model.Movie;
 import com.example.watchlog.repository.MovieRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+    
 import java.util.List;
 
 @RestController
